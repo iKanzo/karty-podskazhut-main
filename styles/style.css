@@ -45,7 +45,6 @@ button:focus-visible {
 
 button:disabled {
   pointer-events: none;
-  cursor: none;
 }
 
 .theme_dark {
