@@ -33,6 +33,21 @@ figure {
   margin: 0;
 }
 
+a:focus,
+button:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+button:disabled {
+  pointer-events: none;
+  cursor: none;
+}
+
 .theme_dark {
   --bg-color: #171717;
   --text-color: #B3B3B3;
@@ -88,17 +103,12 @@ figure {
   background-color: transparent;
 }
 
-.header__theme-button:focus-visible {
-  outline: 1px solid currentColor;
-}
-
 .header__theme-button:hover {
   text-decoration: underline;
 }
 
 .header__theme-button_is-active {
   font-weight: 700;
-  pointer-events: none;
 }
 
 .theme_dark .header__theme-button_is-active::after {
@@ -151,7 +161,7 @@ figure {
 
 .content__list {
   list-style: none;
-  padding-left: 40px;
+  padding: 0 0 0 40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -167,16 +177,19 @@ figure {
   width: 15px;
   height: 15px;
   background-image: url("../images/marker-light.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .theme_dark .content__item::before {
   background-image: url('../images/marker-dark.svg');
 }
 
-.content__text-block_type_first-lettered .content__paragraph:first-child:first-letter {
+.content__text-block_type_first-lettered .content__paragraph:first-of-type:first-letter {
+  display: inline-block;
   background-color: var(--accent-color, #FFAB6B);
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 0 4px;
   margin-right: 1px;
   font-weight: 700;
   font-size: 30px;
@@ -187,8 +200,7 @@ figure {
 }
 
 .content__figure {
-  margin-top: 7%;
-  margin-bottom: 7%;
+  margin: 7% auto;
   width: calc(100%  + 10vi);
   position: relative;
   right: 5vi;
@@ -200,8 +212,9 @@ figure {
 }
 
 .content__picture-caption {
-  margin-top: 20px;
+  padding: 20px;
   text-align: center;
+  border-bottom: 1px solid currentColor;
 }
 
 .content__card {
@@ -226,10 +239,10 @@ figure {
   content: '';
   display: block;
   position: absolute;
-  right: 0;
   bottom: 13px;
   z-index: -1;
-  width: calc(100% + 2px);
+  width: calc(100% + 8px);
+  left: -4px;
   height: 0.3em;
   background-color: var(--accent-color, #FFAB6B);
 }
@@ -238,7 +251,7 @@ figure {
   background-image: url('../images/pattern.svg');
 }
 
-.footer__copyright {
+.footer {
   margin-top: 10%;
   padding: 2.5%;
   border-top: 1px solid currentColor;
