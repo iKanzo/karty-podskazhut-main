@@ -195,7 +195,7 @@ button:disabled {
 }
 
 .theme_dark .content__text-block_type_first-lettered .content__paragraph:first-child:first-letter {
-  background-image: url('../images/pattern.svg');
+  border: 1px solid currentColor;
 }
 
 .content__figure {
